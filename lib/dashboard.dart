@@ -1,9 +1,45 @@
+import 'package:curso_basico_flutter/BottomNavigation.dart';
+import 'package:curso_basico_flutter/background.dart';
+import 'package:curso_basico_flutter/home.dart';
+import 'package:curso_basico_flutter/targetas.dart';
 import 'package:curso_basico_flutter/widget/pastel_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
 class Dashboard extends StatelessWidget {
   const Dashboard({super.key});
+    void _onPressedDashboard(BuildContext context) {
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (context) {
+        return const Dashboard();
+      },
+    ));
+  }
+
+  void _onPressedHome(BuildContext context) {
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (context) {
+        return const Home();
+      },
+    ));
+  }
+
+  void _onPressedBackground(BuildContext context) {
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (context) {
+        return const BackgroundPage();
+      },
+    ));
+  }
+
+  void _onPressedTarjetas(BuildContext context) {
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (context) {
+        return const Tarjetas();
+      },
+    ));
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +49,9 @@ class Dashboard extends StatelessWidget {
         color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold);
 
     return Scaffold(
+         bottomNavigationBar: BottomNavigation(),
       appBar: AppBar(
+       
         title: const Center(
             child: Text(
           "Mi perfil",
@@ -36,7 +74,7 @@ class Dashboard extends StatelessWidget {
         ),
         backgroundColor: Colors.white,
       ),
-      body: Container(
+      body: SingleChildScrollView(child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Stack(
@@ -59,7 +97,7 @@ class Dashboard extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            "Junior Wachapa",
+                            "Jeremy Tierra",
                             style: style_titles,
                             textAlign: TextAlign.left,
                           ),
@@ -166,6 +204,6 @@ class Dashboard extends StatelessWidget {
           )
         ]),
       ),
-    );
+  )  );
   }
 }

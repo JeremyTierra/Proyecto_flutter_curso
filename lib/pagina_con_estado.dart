@@ -8,7 +8,7 @@ class PaginaConEstado extends StatefulWidget {
 }
 
 class _PaginaConEstadoState extends State<PaginaConEstado> {
-  var nombre = "Juan Perez";
+  var nombre = "";
 
   @override
   Widget build(BuildContext context) {
